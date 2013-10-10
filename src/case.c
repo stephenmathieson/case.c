@@ -11,11 +11,13 @@
 #include <string.h>
 #include "case.h"
 
-#define modifier 'a' - 'A'
+#define modifier     'a' - 'A'
+#define is_lower(c)  c >= 'a' && c <= 'z'
+#define is_upper(c)  c >= 'A' && c <= 'Z'
 
 char *case_upper(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
-    if (str[i] >= 'a' && str[i] <= 'z') {
+    if (is_lower(str[i])) {
       str[i] -= modifier;
     }
   }
@@ -24,7 +26,7 @@ char *case_upper(char *str) {
 
 char *case_lower(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
-    if (str[i] >= 'A' && str[i] <= 'Z') {
+    if (is_upper(str[i])) {
       str[i] += modifier;
     }
   }
