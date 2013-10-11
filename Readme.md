@@ -3,13 +3,17 @@
 
   String case conversion utility
 
+## Installation
+
+    $ clib install stephenmathieson/case.c
+
 ## API
 
-### `char * case_upper(char *str)`
+### `char *case_upper(char *str)`
 
   Convert `str` to uppercase.
 
-### `char * case_lower(char *str)`
+### `char *case_lower(char *str)`
 
   Convert `str` to lowercase.
 
