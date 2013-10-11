@@ -17,6 +17,10 @@
 
   Convert `str` to lowercase.
 
+### `char *case_camel(char *str)`
+
+  Convert `str` to camelCase.
+
 ## License 
 
 (The MIT License)
