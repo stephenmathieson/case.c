@@ -7,8 +7,8 @@
 //
 
 
-#ifndef case
-#define case
+#ifndef CASE
+#define CASE
 
 char *case_upper(char *str);
 
