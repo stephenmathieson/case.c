@@ -16,7 +16,8 @@
 #define CASE_IS_UPPER(c)  c >= 'A' && c <= 'Z'
 #define CASE_IS_SEP(c)    c == '-' || c == '_' || c == ' '
 
-char *case_upper(char *str) {
+char *
+case_upper(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
     if (CASE_IS_LOWER(str[i])) {
       str[i] -= CASE_MODIFIER;
@@ -25,7 +26,8 @@ char *case_upper(char *str) {
   return str;
 }
 
-char *case_lower(char *str) {
+char *
+case_lower(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
     if (CASE_IS_UPPER(str[i])) {
       str[i] += CASE_MODIFIER;
@@ -34,7 +36,8 @@ char *case_lower(char *str) {
   return str;
 }
 
-char *case_camel(char *str) {
+char *
+case_camel(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
     if (CASE_IS_SEP(str[i])) {
       memmove(&str[i], &str[i + 1], len - i);

@@ -4,7 +4,8 @@
 #include <assert.h>
 #include "src/case.h"
 
-int main(int argc, char **argv) {
+int
+main() {
   assert(0 == strcmp("", case_upper("")));
   assert(0 == strcmp("", case_lower("")));
 
