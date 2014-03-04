@@ -2,7 +2,7 @@
 //
 // case.h
 //
-// Copyright (c) 2013 Stephen Mathieson
+// Copyright (c) 2014 Stephen Mathieson
 // MIT licensed
 //
 
