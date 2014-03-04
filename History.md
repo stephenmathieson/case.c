@@ -1,4 +1,11 @@
 
+0.1.2 / 2014-03-04
+==================
+
+ * Use ctype.h's `islower` / `isupper`
+ * Cleanup tests
+ * Bump copyright year
+
 0.1.1 / 2014-03-04
 ==================
 
