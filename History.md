@@ -4,10 +4,12 @@
 
  * Prefix and upper-case macros
 
-# 0.1.0
+0.1.0 / 2013-10-17
+==================
 
-- add `case_camel()`
+ * add `case_camel()`
 
-# 0.0.1 
+0.0.1 / 2013-10-10
+==================
 
-- Initial release
+ * Initial release
