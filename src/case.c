@@ -12,14 +12,14 @@
 #include <ctype.h>
 #include "case.h"
 
-#define CASE_MODIFIER     'a' - 'A'
+#define CASE_MODIFIER     0x20
 #define CASE_IS_SEP(c)    c == '-' || c == '_' || c == ' '
 
 char *
 case_upper(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
     if (islower(str[i])) {
-      str[i] -= CASE_MODIFIER;
+      str[i] &= ~CASE_MODIFIER;
     }
   }
   return str;
@@ -29,7 +29,7 @@ char *
 case_lower(char *str) {
   for (int i = 0, len = strlen(str); i < len; i++) {
     if (isupper(str[i])) {
-      str[i] += CASE_MODIFIER;
+      str[i] |= CASE_MODIFIER;
     }
   }
   return str;
@@ -42,7 +42,7 @@ case_camel(char *str) {
       memmove(&str[i], &str[i + 1], len - i);
       // never cap the first char
       if (i && islower(str[i])) {
-        str[i] -= CASE_MODIFIER;
+        str[i] &= ~CASE_MODIFIER;
       }
       // account for removing seperator
       i--;
