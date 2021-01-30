@@ -18,9 +18,7 @@
 char *
 case_upper(char *str) {
   for (char *s = str; *s; s++) {
-    if (islower(*s)) {
-      *s &= ~CASE_MODIFIER;
-    }
+    *s = toupper(*s);
   }
   return str;
 }
@@ -28,9 +26,7 @@ case_upper(char *str) {
 char *
 case_lower(char *str) {
   for (char *s = str; *s; s++) {
-    if (isupper(*s)) {
-      *s |= CASE_MODIFIER;
-    }
+    *s = tolower(*s);
   }
   return str;
 }
@@ -50,9 +46,8 @@ case_camel(char *str) {
     do {
       r++;
     } while (CASE_IS_SEP(*r));
-    if (islower(*r)) {
-      *w++ = *r++ & ~CASE_MODIFIER;
-    }
+    *w++ = toupper(*r);
+    r++;
     while (*r && !CASE_IS_SEP(*r)) {
       *w++ = *r++;
     }
