@@ -17,7 +17,7 @@
 
 char *
 case_upper(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
+  for (size_t i = 0, len = strlen(str); i < len; i++) {
     if (islower(str[i])) {
       str[i] &= ~CASE_MODIFIER;
     }
@@ -27,7 +27,7 @@ case_upper(char *str) {
 
 char *
 case_lower(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
+  for (size_t i = 0, len = strlen(str); i < len; i++) {
     if (isupper(str[i])) {
       str[i] |= CASE_MODIFIER;
     }
@@ -37,7 +37,7 @@ case_lower(char *str) {
 
 char *
 case_camel(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
+  for (size_t i = 0, len = strlen(str); i < len; i++) {
     if (CASE_IS_SEP(str[i])) {
       memmove(&str[i], &str[i + 1], len - i);
       // never cap the first char
