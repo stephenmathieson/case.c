@@ -12,7 +12,6 @@
 #include <ctype.h>
 #include "case.h"
 
-#define CASE_MODIFIER     0x20
 #define CASE_IS_SEP(c)    ((c) == '-' || (c) == '_' || (c) == ' ')
 
 char *
@@ -34,14 +33,13 @@ case_lower(char *str) {
 char *
 case_camel(char *str) {
   char *r = str, *w = str;
-  // never cap the first char {
+  // never cap the first char
   while (CASE_IS_SEP(*r)) {
     r++;
   }
   while (*r && !CASE_IS_SEP(*r)) {
     *w++ = *r++;
   }
-  // }
   while (*r) {
     do {
       r++;
