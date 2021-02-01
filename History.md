@@ -1,4 +1,13 @@
 
+v0.2.0 / 2021-02-01
+===================
+
+  * Add CI (#5)
+  * Improve readability
+  * Don't do duplicate work
+  * Use correct type on i and len
+  * Make Makefile portable
+
 0.1.3 / 2014-11-21
 ==================
 
