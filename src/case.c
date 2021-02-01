@@ -13,42 +13,45 @@
 #include "case.h"
 
 #define CASE_MODIFIER     0x20
-#define CASE_IS_SEP(c)    c == '-' || c == '_' || c == ' '
+#define CASE_IS_SEP(c)    ((c) == '-' || (c) == '_' || (c) == ' ')
 
 char *
 case_upper(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
-    if (islower(str[i])) {
-      str[i] &= ~CASE_MODIFIER;
-    }
+  for (char *s = str; *s; s++) {
+    *s = toupper(*s);
   }
   return str;
 }
 
 char *
 case_lower(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
-    if (isupper(str[i])) {
-      str[i] |= CASE_MODIFIER;
-    }
+  for (char *s = str; *s; s++) {
+    *s = tolower(*s);
   }
   return str;
 }
 
 char *
 case_camel(char *str) {
-  for (int i = 0, len = strlen(str); i < len; i++) {
-    if (CASE_IS_SEP(str[i])) {
-      memmove(&str[i], &str[i + 1], len - i);
-      // never cap the first char
-      if (i && islower(str[i])) {
-        str[i] &= ~CASE_MODIFIER;
-      }
-      // account for removing seperator
-      i--;
-      len--;
+  char *r = str, *w = str;
+  // never cap the first char {
+  while (CASE_IS_SEP(*r)) {
+    r++;
+  }
+  while (*r && !CASE_IS_SEP(*r)) {
+    *w++ = *r++;
+  }
+  // }
+  while (*r) {
+    do {
+      r++;
+    } while (CASE_IS_SEP(*r));
+    *w++ = toupper(*r);
+    r++;
+    while (*r && !CASE_IS_SEP(*r)) {
+      *w++ = *r++;
     }
   }
-
+  *w = 0;
   return str;
 }
