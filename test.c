@@ -99,8 +99,14 @@ TEST(camel_leading_seperator) {
   EQUALS("leadingSep", case_camel(leading_sep));
 }
 
+TEST(camel_trailing_seperators) {
+  char trailing_seps[] = "trailing-seps---";
+
+  EQUALS("trailingSeps", case_camel(trailing_seps));
+}
+
 TEST(camel_trailing_seperator) {
-  char trailing_sep[] = "trailing-sep---";
+  char trailing_sep[] = "trailing-sep-";
 
   EQUALS("trailingSep", case_camel(trailing_sep));
 }
@@ -123,6 +129,7 @@ main() {
   RUN_TEST(camel_hypen_seperators);
   RUN_TEST(camel_underscore_seperators);
   RUN_TEST(camel_leading_seperator);
+  RUN_TEST(camel_trailing_seperators);
   RUN_TEST(camel_trailing_seperator);
   printf("\n");
   return 0;

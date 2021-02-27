@@ -44,6 +44,8 @@ case_camel(char *str) {
     do {
       r++;
     } while (CASE_IS_SEP(*r));
+    if (!*r)
+	    break;
     *w++ = toupper(*r);
     r++;
     while (*r && !CASE_IS_SEP(*r)) {
